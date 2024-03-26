@@ -1,17 +1,39 @@
 package pe.cjjc.projects.controller;
 
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+import pe.cjjc.projects.model.UserDTO;
+import pe.cjjc.projects.service.UserService;
 
 @Controller
 public class UserController {
+    @Autowired
+    private UserService userService;
 
-    @RequestMapping("users")
-    public ModelAndView users(){
-        String userlist [] = {"pepito","juancito", "luchito"};
-        ModelAndView model = new ModelAndView("users", "userlist", userlist);
-        return model;
+    public UserService getUserService() {
+        return userService;
+    }
+
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+
+    @RequestMapping("/loginform")
+    public String loginform() {
+        return "login";
+    }
+
+    @RequestMapping("/loginaction")
+    public ModelAndView loginaction(UserDTO userDTO) {
+        ModelAndView view = null;
+        UserDTO validUser = getUserService().validaUsuario(userDTO);
+        if (validUser != null) {
+            view = new ModelAndView("users", "usuario", validUser.getFullUserName());
+        } else {
+            view = new ModelAndView("users", "usuario", "Usuario Inválido");
+        }
+        return view;
     }
 }

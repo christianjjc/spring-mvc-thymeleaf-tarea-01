@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+
+:root {
+    --glb-font-family: 'Roboto', sans-serif;
+    --glb-font-size: 14px;
+    --glb-bg-color: black;
+}
+
+body {
+    font-family: var(--glb-font-family);
+    font-size: var(--glb-font-size);
+    background-color: var(--glb-bg-color);
+}
+
+.img-logo-header {
+    height: 24px;
+}
+
+.img-logo-footer {
+    width: 200px;
+}
+
+.borde-delgado {
+    border-bottom: 1px solid #495057 !important;
+}
+
+.mensaje-principal {
+    background-color: rgba(100, 6, 147, 0.5);
+    color: white;
+}
+
+a {
+    color: white;
+}
+
+#enlace-rrss a:hover {
+    color: rgba(100, 6, 147);
+    background-color: white;
+}
+
+.login-form {
+    width: 350px;
+    height: 400px;
+    /* background-color: rgba(40, 39, 39, 0.6); */
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: blueviolet;
+    border-color: blueviolet;
+}
+
+.btn-primary:hover {
+    background-color: rgb(148, 64, 227);
+    border-color: rgb(148, 64, 227);
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .mensaje-abs {
+        bottom: 50px;
+        left: 30px;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .mensaje-abs {
+        bottom: 100px;
+        left: 100px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .mensaje-abs {
+        bottom: 200px;
+        left: 200px;
+    }
+}
