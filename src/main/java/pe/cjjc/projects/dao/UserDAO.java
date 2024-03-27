@@ -14,11 +14,11 @@ public class UserDAO {
 
     public UserDAO() {
         this.setUsers(new ArrayList<UserDTO>());
-        getUsers().add(new UserDTO("jperez", "123456", "Javier Perez"));
-        getUsers().add(new UserDTO("cjimenez", "123456", "Christian Jiménez"));
-        getUsers().add(new UserDTO("ecastro", "123456", "Emily Castro"));
-        getUsers().add(new UserDTO("hjimenez", "123456", "Hanna Jiménez"));
-        getUsers().add(new UserDTO("cjimenez", "123456", "Chimi Jiménez"));
+        getUsers().add(new UserDTO("jperez", "123456", "Javier Perez","https://reqres.in/img/faces/1-image.jpg"));
+        getUsers().add(new UserDTO("cjimenez", "123456", "Christian Jiménez","https://reqres.in/img/faces/2-image.jpg"));
+        getUsers().add(new UserDTO("ecastro", "123456", "Emily Castro",	"https://reqres.in/img/faces/3-image.jpg"));
+        getUsers().add(new UserDTO("hjimenez", "123456", "Hanna Jiménez","https://reqres.in/img/faces/4-image.jpg"));
+        getUsers().add(new UserDTO("cjimenez", "123456", "Chimi Jiménez","https://reqres.in/img/faces/5-image.jpg"));
     }
 
 
@@ -26,8 +26,8 @@ public class UserDAO {
         getUsers().add(user);
     }
 
-    public void addUser(String userName, String password, String fullUserName) {
-        getUsers().add(new UserDTO(userName, password, fullUserName));
+    public void addUser(String userName, String password, String fullUserName, String avatar) {
+        getUsers().add(new UserDTO(userName, password, fullUserName,avatar));
     }
 
     public List<UserDTO> getUsers() {

@@ -48,7 +48,7 @@ public class UserController {
         if (validUser != null) {
             view = new ModelAndView("users", "userlist", getUserService().getUsers());
         } else {
-            view = new ModelAndView("users", "msgError", "Usuario o clave no son correctos");
+            view = new ModelAndView("users", "userlist", false);
         }
         return view;
     }

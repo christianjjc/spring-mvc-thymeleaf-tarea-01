@@ -25,8 +25,8 @@ public class UserService {
         getUserDAO().addUser(user);
     }
 
-    public void addUser(String userName, String password, String fullUserName) {
-        getUserDAO().addUser(userName, password, fullUserName);
+    public void addUser(String userName, String password, String fullUserName, String avatar) {
+        getUserDAO().addUser(userName, password, fullUserName, avatar);
     }
 
     public UserDAO getUserDAO() {
