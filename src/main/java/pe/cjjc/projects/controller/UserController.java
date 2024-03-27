@@ -7,6 +7,8 @@ import org.springframework.web.servlet.ModelAndView;
 import pe.cjjc.projects.model.UserDTO;
 import pe.cjjc.projects.service.UserService;
 
+import java.util.List;
+
 @Controller
 public class UserController {
     @Autowired
@@ -52,4 +54,25 @@ public class UserController {
         }
         return view;
     }
+
+    @RequestMapping("/newuser")
+    public ModelAndView newUSer() {
+        ModelAndView view = new ModelAndView("userform","user",new UserDTO());
+        return view;
+    }
+
+    @RequestMapping("/saveuser")
+    public ModelAndView saveUSer(UserDTO user) {
+        if (user != null) getUserService().addUser(user);
+        ModelAndView view = new ModelAndView("users", "userlist", getUserService().getUsers());
+        return view;
+    }
+
+
+    @RequestMapping("/users")
+    public ModelAndView getUsers() {
+        ModelAndView view = new ModelAndView("users", "userlist", getUserService().getUsers());
+        return view;
+    }
+
 }
