@@ -25,6 +25,7 @@ public class UserController {
         return "login";
     }
 
+    /* //ya no se requiere el redireccionamiento tonto.
     @RequestMapping("/loginaction")
     public ModelAndView loginaction(UserDTO userDTO) {
         ModelAndView view = null;
@@ -33,6 +34,21 @@ public class UserController {
             view = new ModelAndView("users", "usuario", validUser.getFullUserName());
         } else {
             view = new ModelAndView("users", "usuario", "Usuario Inválido");
+        }
+        return view;
+    }
+    */
+
+
+    // Se cargga la lista si el usuario es correcto
+    @RequestMapping("/loginaction")
+    public ModelAndView loginaction(UserDTO userDTO) {
+        ModelAndView view = null;
+        UserDTO validUser = getUserService().validaUsuario(userDTO);
+        if (validUser != null) {
+            view = new ModelAndView("users", "userlist", getUserService().getUsers());
+        } else {
+            view = new ModelAndView("users", "msgError", "Usuario o clave no son correctos");
         }
         return view;
     }
